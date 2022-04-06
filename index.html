@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/9eaebd9aee.js" crossorigin="anonymous"></script>
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./style.css">
+    <title>zip file</title>
+
+</head>
+
+<body>
+    <div class="main">
+        <div class=" container-fluid ">
+            <nav class="navbar navbar-expand-lg navbar-light main row p-0">
+                <a class="navbar-brand col-3 text-center text-white" href="#"> <i
+                        class="fas f-icon fa-laptop-code mr-1"></i>DevCamper</a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse col-lg-8 col-md-12 col-12" style="background-color: #E05433;"
+                    id="navbarNav">
+                    <ul class="navbar-nav ml-auto text-white pl-lg-auto pl-md-5 pl-5">
+                        <li class="nav-item active">
+                            <a class="nav-link aa" href="./login.html"><i
+                                    class="fas s-icon fa-sign-in-alt"></i>Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link aa" href="./rejister.html"><i class="fas s-icon fa-user"></i>Register</a>
+                        </li>
+                        <li class="nav-item d-lg-block d-md-none d-none">
+                            <a class="nav-link " href="#">
+                                <div class="div"></div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link aa" href="./joshua next1.html">Browse Bootcamp</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="">
+
+        <div class="sec-part">
+            <h1>Find a Code Bootcamp</h1>
+            <p>Find, rate and read reviews on coding bootcamps Miles From
+            </p>
+
+
+            <div class="thirdt container-fluid p-2 d-flex 
+            flex-wrap justify-content-center">
+
+                <input type="text" id="input1" placeholder=" Miles From" class="col-lg-5 col-md-10 col-10  p-2">
+                <input type="text" id="input2" placeholder=" EnterZipcode"
+                    class="col-lg-5 col-md-10 col-10 ml-lg-4 ml-0 ml-0 mt-lg-0 mt-md-3 mt-3 p-2">
+
+            </div>
+            <div class="fourth ">
+
+                <li><a id="btn" onclick="addclick()" style="cursor: pointer; color: white;">Find Bootcamp</a></li>
+            </div>
+
+        </div>
+
+    </div>
+    <div id="r-div"></div>
+
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
+    crossorigin="anonymous"></script>
+
+<script>
+    var inp1 = document.getElementById("input1")
+    var inp2 = document.getElementById("input2")
+    var btn = document.getElementById("btn")
+    var file = document.getElementById("r-div")
+
+
+    function addclick() {
+
+        var inpt1 = inp1.value
+        var inpt2 = inp2.value
+
+        var obj = { inpt1, inpt2 }
+        // console.log(obj);
+
+        if (inpt1 == "" && inpt2 == "") {
+            alert("please fill the inputs")
+        }
+        else {
+            var data = localStorage.getItem("key")
+            if (data) {
+                data = JSON.parse(data)
+                data.push(obj)
+                localStorage.setItem("key", JSON.stringify(data))
+                // console.log("if");
+            }
+            else {
+                localStorage.setItem("key", JSON.stringify([obj]))
+                //    console.log("else");
+            }
+
+
+        }
+        inp1.value = ""
+        inp2.value = ""
+        render()
+
+    }
+    render()
+
+    function render() {
+        var data = JSON.parse(localStorage.getItem("key"))
+       var  list = ""
+        // file.innerHTML = ""
+
+        data.forEach((ele, i) => {
+            list += `<h1 style="word-spacing: 10px; padding-top:20px;"> INP1: ${ele.inpt1} <button onclick="del(${i})" style="background-color:blue;border:none;outline:none; padding:0px 10px;background-color:blue;font-size:20px;color:white">Del</button>
+
+                <button onclick=edit(${i})  style="padding:0px 5px;background-color:yellow;border:none;outline:none;font-size:20px;color:red" >Edit 1</button>
+                </h1>
+
+            <h1 style="word-spacing: 10px;">INP2: ${ele.inpt2}  <button onclick=edit1(${i}) style="padding:0px 5px;background-color:yellow;font-size:20px; border:none;outline:none;color:red">Edit 2</button></h1>`
+            file.innerHTML = list
+        });
+
+    }
+    function del(i) {
+        var data = JSON.parse(localStorage.getItem("key"))
+        data.splice(i, 1)
+        // console.log(i, 1, "index");
+        localStorage.setItem("key", JSON.stringify(data))
+        render()
+
+    }
+    function edit(i){
+        var data = JSON.parse(localStorage.getItem("key"))
+        inp1.value=data[i].inpt1
+        localStorage.setItem("key", JSON.stringify(data))
+        
+    }
+
+    function edit1(i){
+        var data = JSON.parse(localStorage.getItem("key"))
+
+        inp2.value=data[i].inpt2
+        
+        localStorage.setItem("key", JSON.stringify(data))
+        
+    }
+
+
+</script>
+
+</html>

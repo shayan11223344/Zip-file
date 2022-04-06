@@ -1,0 +1,162 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.main{
+    height: 9vh;
+    background-color: #E05433;
+    z-index: 3;
+}
+.one{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.f-icon{
+    font-size: 20px;
+    color: white;
+}
+.one>li>a{
+    font-size: 20px;
+    color: white;
+    margin-left: 10px;
+    text-decoration: none;
+
+}
+.one>li>a:hover{
+    color: #FFFFFF80;
+}
+.two{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+    margin-right: 40px;
+    /* border: 1px solid #000; */
+}
+.aa{
+    color: #FFFFFF80 !important;
+}
+.s-icon{
+    font-size: 17px;
+    color: #FFFFFF80;
+}
+.two>li>a{
+    color: #FFFFFF80;
+    margin-left: 5px;
+    text-decoration: none;
+
+}
+a{    text-decoration: none !important;
+}
+.t-icons{
+    margin-left: 20px;
+}
+.third{
+    margin-left: 20px;
+    z-index: 5 !important;
+}
+.div{
+    width: 2px;
+    height: 20px;
+    color: #FFFFFF80;
+    background-color: #FFFFFF80;
+    margin-left: 30px;
+}
+.four{
+    width: 90%;    
+    margin-right: 40px;
+}
+.four>li>a{
+    color: #FFFFFF80;
+    text-decoration: none;
+
+}
+.sec-part{
+    /* width: 100%; */
+    height: 91vh;
+    background-image: url(./mac.jpg);
+    background-size: 100% 100%;
+    /* background-size: cover; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    /* z-index: -1; */
+}
+.sec-part>h1{
+    color: white;
+
+    margin-top: 180px;
+    font-size: 60px;
+}
+.sec-part>p{
+    color: white;
+    font-size: 20px;
+    margin-top: 10px;
+}
+input{
+    width: 40%;
+    height: 6vh;
+    outline: none;
+    border: none;
+}
+.fourth{
+    background-color: tomato;
+    width: 84.2%;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fourth>li>a{
+    height: 6vh;
+    font-size: 20px;
+    color: white;
+    padding: 20px 0;
+}
+#r-div{
+    background-color: brown;
+    text-align: center;
+}
+
+@media only screen and (max-width: 800px){ 
+ .sec-part>h1{
+    font-size: 25px;
+ }
+ .sec-part>p{
+    font-size: 15px;
+ }
+ .input{
+     width: 20%;
+ }
+ .fourth>li>a{
+     font-size: 20px;
+ }
+ .f-icon{
+     font-size: 15px;
+     margin-left: 10px;
+ }
+ .one>li>a{
+     font-size: 15px;
+ }
+ .two{
+     width: 60%;
+     margin: 0 30px;
+ }
+
+}
+@media only screen and (max-width: 400px){ 
+    .sec-part>h1{
+        font-size: 20px;
+    }
+    .sec-part>p{
+        font-size: 14px;
+    }
+}
+
